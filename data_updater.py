@@ -10,7 +10,7 @@ with open('./react-ui/src/timestamps.json') as json_file:
 latest_block = max([int(i) for i in prices.keys()])+1
 
 to_continue = True
-while to_continue and latest_block<5305:
+while to_continue:
     try:
         out = subprocess.Popen(['starknet', 'get_block', '--number', str(latest_block), '--network', 'alpha-mainnet'],
                     stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
