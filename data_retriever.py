@@ -1,20 +1,26 @@
 import subprocess
 import json
+from tqdm import tqdm
 
 prices = {}
+timestamps = {}
 ls_err = []
 
-for block_num in range(4000,4001):
+for block_num in tqdm(range(4600,5300)):
     out = subprocess.Popen(['starknet', 'get_block', '--number', str(block_num), '--network', 'alpha-mainnet'],
                        stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     stdout, stderr = out.communicate()
     stdout = str(stdout)
+    time_curr = stdout.split()[18].split(",")[0]
     price_curr = stdout.split()[5:7][1].split('"')[1]
     prices[str(block_num)] = price_curr
+    timestamps[str(block_num)] = time_curr
     ls_err.append(stderr)
 
-with open("gas_prices", "w") as fp:
+with open("./react-ui/src/gas_prices.json", "w") as fp:
     json.dump(prices,fp) 
+with open("./react-ui/src/timestamps.json", "w") as fp:
+    json.dump(timestamps,fp) 
 
 
 #
