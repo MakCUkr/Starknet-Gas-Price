@@ -1,6 +1,8 @@
 # StarkNet Gas Price Dashboard
 
-This is a dashboard that tracks the gas price on the StarkNet alpha mainnet. The react app deployed [here] simply shows the data that is saved as a json file inside `./react-ui/src/gas_prices.json`. 
+Deployment address: https://starknet-gas-price.vercel.app/
+
+This is a dashboard that tracks the gas price on the StarkNet alpha mainnet. The react app deployed [here](https://starknet-gas-price.vercel.app/) simply shows the data that is saved as a json file inside `./react-ui/src/gas_prices.json`. 
 
 To get the latest data, follow the followign steps: \
     1. Clone this repo : `git clone https://github.com/MakC-Ukr/Starknet-Gas-Price`\
